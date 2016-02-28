@@ -1,0 +1,24 @@
+_repo: The-Bird-Woman-of-the-Lewis-and-Clark-Expedition_5742
+creator:
+  author:
+    agent_name: Chandler, Katherine
+    gutenberg_agent_id: '1862'
+    url: http://www.gutenberg.org/2009/agents/1862
+description: ''
+gutenberg_bookshelf: Children's Instructional Books
+gutenberg_issued: '2004-05-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '5742'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Readers (Primary)'
+- !lcc 'PE'
+- !lcsh 'Lewis and Clark Expedition (1804-1806) -- Juvenile literature'
+- !lcsh 'Sacagawea -- Juvenile literature'
+- !lcc 'F590.3'
+title: The Bird-Woman of the Lewis and Clark Expedition
+url: http://www.gutenberg.org/ebooks/5742
