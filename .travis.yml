@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: gSre7DxPURFMjFB1xMCVIchpdbDD9fULtt1wWBz66ACQMk4yQKa4Z+rINKXeq76tdMRuNaib2LVuYdRev6lvuuXEiGWLbFhV3lmuJMvnqZW4rId6by1jZp0sHlrPl/jgHFNSd4vY/ntoTozglnZKXUaTvMleykuhXdubI0RqfPgIjQ6XlA/PVEJJXmZoG95vgGGyoUix0Rl9mXPFDD1B3GqB26q8FHgfHiksa3OPom1v3avRYAG1HRa0ZpkEEms2qXRuZFljhxsqhjc67PnI2J2cR53JUNmBtqPwBPkHQZZ7S+1cehZNHE0BNibgNohYNQOwVw9qJVpT/neiwYSyKCuNi+ZlaxqbMLd5/uMw4LguIuwBqoM1NUBMZIupiyLodDflw4IG5EKjBbAC3NKIXMu8ebj+GBoIFZJs+aBa75RWZqhzRRpAT6JTDgChm5RJFk4T2nwPqkXMwIN881OA1M9hk/6BY1fx+o9hkrA8qMNOTnWve0VDdoWRdcZv9dZW21pRg0VViMZij+ZOgja5fEymmI+s1CT/+35jfnXD1qZ9CkKHlj/n6sffLVguWlgsHwcy9hNjgM+tK3XAZimwX0DfinzFKfWnZKIWJ3GTXEj+5pSGo1uLHowLk7VgR9C0vODMpnot03QP2xSTfXriNLrbqOuzUW5AomeP6+bskaU=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Bird-Woman-of-the-Lewis-and-Clark-Expedition_5742
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
