@@ -1,11 +1,16 @@
 _repo: The-Bird-Woman-of-the-Lewis-and-Clark-Expedition_5742
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Chandler, Katherine
     gutenberg_agent_id: '1862'
     url: http://www.gutenberg.org/2009/agents/1862
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/5742#The-Bird-Woman-of-the-Lewis-and-Clark-Expedition
 gutenberg_bookshelf: Children's Instructional Books
 gutenberg_issued: '2004-05-01'
 gutenberg_type: Text
