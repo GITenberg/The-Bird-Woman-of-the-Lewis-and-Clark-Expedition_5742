@@ -1,5 +1,5 @@
 _repo: The-Bird-Woman-of-the-Lewis-and-Clark-Expedition_5742
-_version: 0.2.0
+_version: 0.2.1
 covers:
 - cover_type: generated
   image_path: cover.png
@@ -26,5 +26,6 @@ subjects:
 - !lcsh 'Lewis and Clark Expedition (1804-1806) -- Juvenile literature'
 - !lcsh 'Sacagawea -- Juvenile literature'
 - !lcc 'F590.3'
+- GITenberg
 title: The Bird-Woman of the Lewis and Clark Expedition
 url: http://www.gutenberg.org/ebooks/5742
